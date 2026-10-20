@@ -16,7 +16,7 @@ fs.mkdirSync(path.join(stage, "icons"), { recursive: true });
 const manifest = JSON.parse(fs.readFileSync(path.join(root, "module", "module.json"), "utf8"));
 manifest.version = pkg.version;
 fs.writeFileSync(path.join(stage, "module.json"), JSON.stringify(manifest, null, 2));
-fs.copyFileSync(path.join(root, "module", "backend.js"), path.join(stage, "backend.js"));
+for (const f of ["backend.js", "ai-tools.js"]) fs.copyFileSync(path.join(root, "module", f), path.join(stage, f));
 fs.cpSync(path.join(root, "lib"), path.join(stage, "lib"), { recursive: true });
 for (const f of ["app.js", "macro.js"]) fs.copyFileSync(path.join(root, "web", f), path.join(stage, "web", f));
 // no Hub, a base visual vem do kit do Hub (piphin://ui/kit.css): leva só a parte das macros do style.css

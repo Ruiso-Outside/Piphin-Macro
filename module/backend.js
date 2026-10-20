@@ -3,6 +3,7 @@
 const path = require("path");
 const U = require("./lib/util");
 const { Macros } = require("./lib/macros");
+const aiTools = require("./ai-tools");
 
 exports.activate = (ctx) => {
   const macros = new Macros({ userDir: path.join(process.env.APPDATA, "Piphin Macro") });
@@ -60,6 +61,9 @@ exports.activate = (ctx) => {
     if (!files || !files[0]) return 0;
     return macros.importMacros(U.readJson(files[0], null));
   });
+
+  // ferramentas para a IA (Piphin LLM): listar, criar e ajustar macros; declaradas no module.json
+  aiTools.register(ctx, macros);
 
   ctx.onStop(() => macros.shutdown());
   macros.boot();

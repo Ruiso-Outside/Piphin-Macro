@@ -7,5 +7,207 @@
   "ui": "web/index.html",
   "icon": "icons/macro.png",
   "accent": "#e879f9",
-  "minHub": "1.4.0"
+  "minHub": "1.4.0",
+  "tools": [
+    {
+      "name": "list_macros",
+      "title": "Listar macros",
+      "readOnly": true,
+      "description": "Lista as macros e o autoclicker do Piphin Macro: nome, atalho, modo, se está ligada e os passos.",
+      "input": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "create_macro",
+      "title": "Criar macro",
+      "description": "Cria (ou substitui, com replace) uma macro de teclado e mouse no Piphin Macro. Ela fica salva e roda pelo atalho. Modos: once = uma vez por atalho; repeat = repete repeat_times vezes; toggle = liga/desliga no atalho e repete até desligar; hold = repete enquanto o atalho estiver apertado. Coloque esperas (wait) entre as ações.",
+      "input": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "hotkey": {
+            "type": "string",
+            "description": "Atalho, ex.: F6, Ctrl+Shift+Q, Mouse4. Evite teclas que o usuário usa no jogo."
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "once",
+              "repeat",
+              "toggle",
+              "hold"
+            ]
+          },
+          "repeat_times": {
+            "type": "number",
+            "description": "Só no modo repeat"
+          },
+          "random_delay_percent": {
+            "type": "number",
+            "description": "Variação aleatória das esperas (0-90%), deixa a macro menos robótica"
+          },
+          "only_in_program": {
+            "type": "string",
+            "description": "Opcional: só funciona com este programa em foco, ex.: RobloxPlayerBeta.exe"
+          },
+          "replace": {
+            "type": "string",
+            "description": "Opcional: nome de uma macro existente para substituir"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "key",
+                    "click",
+                    "wait",
+                    "move",
+                    "scroll",
+                    "text",
+                    "repeat"
+                  ]
+                },
+                "key": {
+                  "type": "string",
+                  "description": "key: nome da tecla (A, 1, F6, Space, Enter, Shift, Ctrl, Up, Numpad1...)"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "press",
+                    "down",
+                    "up",
+                    "click"
+                  ],
+                  "description": "key: press (padrão), down (segurar) ou up (soltar); click: click (padrão), down ou up"
+                },
+                "hold_ms": {
+                  "type": "number",
+                  "description": "key/click: quanto tempo fica apertado (ms)"
+                },
+                "button": {
+                  "type": "string",
+                  "enum": [
+                    "left",
+                    "right",
+                    "middle",
+                    "x1",
+                    "x2"
+                  ]
+                },
+                "count": {
+                  "type": "number",
+                  "description": "click: quantidade de cliques"
+                },
+                "ms": {
+                  "type": "number",
+                  "description": "wait: espera em ms"
+                },
+                "max_ms": {
+                  "type": "number",
+                  "description": "wait: se informado, espera um tempo aleatório entre ms e max_ms"
+                },
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "relative": {
+                  "type": "boolean",
+                  "description": "move: true = desloca a partir da posição atual"
+                },
+                "duration_ms": {
+                  "type": "number",
+                  "description": "move: duração do movimento"
+                },
+                "amount": {
+                  "type": "number",
+                  "description": "scroll: positivo = para cima"
+                },
+                "horizontal": {
+                  "type": "boolean"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "text: texto a digitar"
+                },
+                "times": {
+                  "type": "number",
+                  "description": "repeat: quantas vezes (0 = para sempre)"
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  },
+                  "description": "repeat: passos que se repetem (mesmo formato)"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "steps"
+        ]
+      }
+    },
+    {
+      "name": "configure_autoclicker",
+      "title": "Ajustar autoclicker",
+      "description": "Ajusta o autoclicker do Piphin Macro (cliques por segundo, botão, atalho, modo).",
+      "input": {
+        "type": "object",
+        "properties": {
+          "clicks_per_second": {
+            "type": "number"
+          },
+          "max_clicks_per_second": {
+            "type": "number",
+            "description": "Se maior, sorteia entre os dois"
+          },
+          "button": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right",
+              "middle"
+            ]
+          },
+          "double_click": {
+            "type": "boolean"
+          },
+          "hotkey": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "toggle",
+              "hold"
+            ]
+          },
+          "stop_after_clicks": {
+            "type": "number",
+            "description": "0 = sem limite"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  ]
 }
