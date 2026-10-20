@@ -18,7 +18,12 @@ manifest.version = pkg.version;
 fs.writeFileSync(path.join(stage, "module.json"), JSON.stringify(manifest, null, 2));
 fs.copyFileSync(path.join(root, "module", "backend.js"), path.join(stage, "backend.js"));
 fs.cpSync(path.join(root, "lib"), path.join(stage, "lib"), { recursive: true });
-for (const f of ["style.css", "app.js", "macro.js"]) fs.copyFileSync(path.join(root, "web", f), path.join(stage, "web", f));
+for (const f of ["app.js", "macro.js"]) fs.copyFileSync(path.join(root, "web", f), path.join(stage, "web", f));
+// no Hub, a base visual vem do kit do Hub (piphin://ui/kit.css): leva só a parte das macros do style.css
+const css = fs.readFileSync(path.join(root, "web", "style.css"), "utf8");
+const at = css.indexOf("/* =====");
+if (at < 0) throw new Error("style.css: marcador da parte das macros não encontrado");
+fs.writeFileSync(path.join(stage, "web", "macro.css"), css.slice(at));
 fs.cpSync(path.join(root, "module", "web"), path.join(stage, "web"), { recursive: true });
 fs.copyFileSync(path.join(root, "icons", "macro.png"), path.join(stage, "icons", "macro.png"));
 

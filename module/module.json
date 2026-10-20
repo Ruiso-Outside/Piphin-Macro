@@ -7,5 +7,5 @@
   "ui": "web/index.html",
   "icon": "icons/macro.png",
   "accent": "#e879f9",
-  "minHub": "1.1.0"
+  "minHub": "1.4.0"
 }

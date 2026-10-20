@@ -1,9 +1,31 @@
-/* Dentro do Piphin Hub: sem barra de título própria e com as abas no topo
-   (a barra lateral já é a do Hub). */
-body.in-hub .layout { flex-direction: column; height: 100%; }
-body.in-hub .sidebar { width: auto; height: auto; flex-direction: row; align-items: center; gap: 6px; padding: 10px 24px;
-  background: var(--bg); border-right: 0; border-bottom: 1px solid #1a1630; }
-body.in-hub .nav { width: auto; padding: 8px 14px; }
-body.in-hub .nav.active { background: rgba(168, 85, 247, .16); box-shadow: inset 0 -2px 0 var(--accent); }
-body.in-hub .badge { margin-left: 6px; }
-body.in-hub main { min-height: 0; }
+/* Piphin Macro dentro do Piphin Hub: base e componentes vêm do kit (piphin://ui/kit.css);
+   aqui só o encaixe da página e o acabamento das peças próprias das macros (macro.css). */
+:root { --p-module: #e879f9; --neon: #c084fc; --neon2: #e879f9; --neon-glow: 0 0 6px rgba(192, 132, 252, .8), 0 0 20px rgba(192, 132, 252, .35); }
+body.in-hub { display: flex; flex-direction: column; overflow: hidden; user-select: none; }
+body.in-hub main { flex: 1; overflow-y: auto; padding: 22px 26px 30px; user-select: text; min-height: 0; }
+.hub-ver { font-size: 11.5px; color: var(--p-text-3); padding-right: 6px; }
+.p-subnav .badge { margin-left: 4px; height: 18px; padding: 0 6px; font-size: 10.5px; }
+.badge.live { background: var(--p-err); color: #fff; box-shadow: 0 0 10px rgba(248, 113, 113, .6); }
+
+/* cartões e barra de estado no padrão do kit */
+.mc { margin-top: 0; }
+.mc-card { background: var(--p-surface-1) !important; border: 1px solid var(--p-line) !important; border-radius: var(--p-r-l) !important; box-shadow: var(--p-shadow); }
+.mc-status { background: var(--p-surface-1) !important; border: 1px solid var(--p-line) !important; border-radius: var(--p-r-m) !important; min-height: 48px; }
+.mc-h { font: 600 12px var(--p-font) !important; letter-spacing: .06em; text-transform: uppercase; color: var(--p-text-3) !important; }
+.mc-item { background: var(--p-surface-1) !important; border-color: var(--p-line) !important; border-radius: var(--p-r-m) !important; }
+.mc-item:hover { background: var(--p-surface-2) !important; border-color: var(--p-line-2) !important; }
+.mc-item.active, .mc-item.sel { border-color: var(--p-module) !important; background: color-mix(in srgb, var(--p-module) 10%, var(--p-surface-1)) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--p-module) 40%, transparent), 0 8px 24px -14px var(--p-module) !important; }
+.mc-rec { border-color: var(--p-line-2) !important; border-radius: var(--p-r-m) !important; background: var(--p-bg-2); }
+.mc-empty { color: var(--p-text-2) !important; }
+
+/* tecla clicável (escolher atalho) */
+.kbd-btn { height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--p-surface-3) !important; border: 1px solid var(--p-line-2) !important;
+  border-bottom-width: 3px !important; border-radius: 10px !important; font: 600 13px var(--p-mono) !important; color: var(--p-text) !important; box-shadow: none !important; }
+.kbd-btn:hover { border-color: var(--p-module) !important; }
+.kbd-btn.wait, .kbd-btn.cap { border-color: var(--p-module) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--p-module) 30%, transparent) !important; animation: p-blink 1.2s infinite; }
+.kbd-btn.sm { height: 30px; font-size: 12px !important; }
+
+/* lista de passos */
+.mc-steps { border-radius: var(--p-r-m) !important; }
+.mc-name { font: 600 20px var(--p-font-display) !important; }
