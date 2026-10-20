@@ -22,11 +22,19 @@ npm start          # roda o app
 npm run check      # teste rápido do motor (só envia F24, que não faz nada)
 npm run icon       # redesenha icons/macro.png e macro.ico
 npm run dist       # gera dist\Piphin-Macro-X.Y.Z-win-x64.zip
+npm run module     # gera dist\piphin-module-macro-X.Y.Z.zip (módulo do Piphin Hub, ~120 KB)
 ```
 
+### Módulo do Piphin Hub
+O Piphin Macro também roda **dentro do Piphin Hub** (1.1.0 ou mais novo), como módulo. O motor (`lib/`) e as telas (`web/`) são os mesmos do app separado; `module/` tem só o que muda dentro do Hub:
+- `module/backend.js`: liga o motor ao Hub (o mesmo papel do `main.js` no app separado);
+- `module/web/`: página sem barra de título e com as abas no topo, mais `shim.js`, que mantém a API `window.macro`.
+
+As macros ficam no mesmo lugar (`%APPDATA%\Piphin Macro`) nos dois jeitos. Evite abrir o app separado e o módulo ao mesmo tempo, porque os dois disputariam os mesmos atalhos.
+
 ### Publicar uma versão
-1. Aumente `"version"` no `package.json` e rode `npm run dist`.
-2. Crie o Release `vX.Y.Z` neste repositório com `Piphin-Macro-X.Y.Z-win-x64.zip`. O Piphin Hub encontra e instala sozinho.
+1. Aumente `"version"` no `package.json` e rode `npm run dist` e `npm run module`.
+2. Crie o Release `vX.Y.Z` neste repositório com `Piphin-Macro-X.Y.Z-win-x64.zip` (app separado) e `piphin-module-macro-X.Y.Z.zip` (módulo). O Piphin Hub encontra e instala sozinho.
 
 ## Estrutura
 | Arquivo | Conteúdo |

@@ -1,0 +1,9 @@
+/* Dentro do Piphin Hub: sem barra de título própria e com as abas no topo
+   (a barra lateral já é a do Hub). */
+body.in-hub .layout { flex-direction: column; height: 100%; }
+body.in-hub .sidebar { width: auto; height: auto; flex-direction: row; align-items: center; gap: 6px; padding: 10px 24px;
+  background: var(--bg); border-right: 0; border-bottom: 1px solid #1a1630; }
+body.in-hub .nav { width: auto; padding: 8px 14px; }
+body.in-hub .nav.active { background: rgba(168, 85, 247, .16); box-shadow: inset 0 -2px 0 var(--accent); }
+body.in-hub .badge { margin-left: 6px; }
+body.in-hub main { min-height: 0; }

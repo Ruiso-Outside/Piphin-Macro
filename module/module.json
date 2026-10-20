@@ -1,0 +1,11 @@
+{
+  "id": "macro",
+  "name": "Piphin Macro",
+  "version": "0.0.0",
+  "description": "Macros de teclado e mouse, gravador, autoclicker e analisador anti-macro.",
+  "main": "backend.js",
+  "ui": "web/index.html",
+  "icon": "icons/macro.png",
+  "accent": "#e879f9",
+  "minHub": "1.1.0"
+}

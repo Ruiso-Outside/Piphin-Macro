@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Piphin Macro</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="module.css">
+</head>
+<body class="in-hub">
+  <div class="layout">
+    <nav class="sidebar">
+      <button class="nav active" data-mtab="macros"><span class="ico">⌨</span>Macros <span class="badge live" id="macroBadge" hidden></span></button>
+      <button class="nav" data-mtab="clicker"><span class="ico">◉</span>Autoclicker</button>
+      <button class="nav" data-mtab="lab"><span class="ico">◬</span>Analisador</button>
+      <button class="nav" data-mtab="settings"><span class="ico">⚙</span>Ajustes</button>
+      <div class="spacer"></div>
+      <div class="hub-ver" id="appVer"></div>
+    </nav>
+
+    <main>
+      <div class="topbar">
+        <div>
+          <h1 id="viewTitle">Macros</h1>
+          <p id="viewSub" class="muted"></p>
+        </div>
+      </div>
+      <section id="content"></section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal" hidden><div class="modal-box" id="modalBox"></div></div>
+  <div id="toasts" class="toasts"></div>
+
+  <script src="shim.js"></script>
+  <script src="app.js"></script>
+  <script src="macro.js"></script>
+</body>
+</html>

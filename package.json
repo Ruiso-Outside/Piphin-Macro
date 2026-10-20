@@ -1,7 +1,7 @@
 {
   "name": "piphin-macro",
   "productName": "Piphin Macro",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Piphin Macro: macros de teclado e mouse, autoclicker e analisador anti-macro para testar seus jogos",
   "main": "main.js",
   "author": "Piphin Studio",
@@ -10,7 +10,8 @@
     "start": "electron .",
     "icon": "electron scripts/make-icon.js",
     "check": "node scripts/check.js",
-    "dist": "electron-builder --win --publish never"
+    "dist": "electron-builder --win --publish never",
+    "module": "node scripts/make-module.js"
   },
   "build": {
     "appId": "studio.piphin.macro",
