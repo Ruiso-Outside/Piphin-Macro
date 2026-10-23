@@ -25,6 +25,8 @@ const at = css.indexOf("/* =====");
 if (at < 0) throw new Error("style.css: marcador da parte das macros não encontrado");
 fs.writeFileSync(path.join(stage, "web", "macro.css"), css.slice(at));
 fs.cpSync(path.join(root, "module", "web"), path.join(stage, "web"), { recursive: true });
+// traduções (o Hub aplica na tela e nos avisos); source.jsonl e config.json ficam de fora
+fs.cpSync(path.join(root, "i18n"), path.join(stage, "i18n"), { recursive: true, filter: (src) => !/\.jsonl$|config\.json$/.test(src) });
 fs.copyFileSync(path.join(root, "icons", "macro.png"), path.join(stage, "icons", "macro.png"));
 
 fs.rmSync(out, { force: true });

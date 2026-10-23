@@ -845,7 +845,7 @@ const Lab = (() => {
     const css = getComputedStyle(document.documentElement);
     $("#lFocus").textContent = g ? `· ${g.name}` : "";
     const why = $("#lWhy");
-    if (!g) { why.innerHTML = ""; ctx.fillStyle = css.getPropertyValue("--muted"); ctx.font = "12px Segoe UI"; ctx.fillText("Sem dados", 12, 24); return; }
+    if (!g) { why.innerHTML = ""; ctx.fillStyle = css.getPropertyValue("--muted"); ctx.font = "12px Segoe UI"; ctx.fillText(window.piphinT ? piphinT("Sem dados") : "Sem dados", 12, 24); return; }
     const s = analyze(g);
     why.innerHTML = s.reasons.length ? s.reasons.map((r) => `<div>• ${esc(r)}</div>`).join("") : `<div class="muted">${s.iv.length < 8 ? "Precisa de pelo menos 9 eventos seguidos para medir o ritmo." : "Nenhum sinal de automação nesta entrada."}</div>`;
     if (!s.iv.length) return;
