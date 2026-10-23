@@ -1,7 +1,7 @@
 {
   "name": "piphin-macro",
   "productName": "Piphin Macro",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Piphin Macro: macros de teclado e mouse, autoclicker e analisador anti-macro para testar seus jogos",
   "main": "main.js",
   "author": "Piphin Studio",

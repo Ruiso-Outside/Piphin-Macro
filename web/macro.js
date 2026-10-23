@@ -139,7 +139,7 @@ const Macro = (() => {
     const box = $("#mcItems");
     if (!box) return;
     const list = userMacros();
-    if (!list.length) { box.innerHTML = `<div class="mc-empty">Nenhuma macro ainda.<br>Crie uma ou use um modelo.</div>`; return; }
+    if (!list.length) { box.innerHTML = ""; return; } // sem macros: o aviso grande do editor já explica
     box.innerHTML = list.map((m0) => {
       const m = draft && draft.id === m0.id ? draft : m0;
       const run = ms.running[m.id], pend = (ms.pending || []).includes(m.id);
@@ -186,6 +186,7 @@ const Macro = (() => {
   function renderEditor() {
     const box = $("#mcEditor");
     if (!box) return;
+    if (!draft && userMacros().length) { box.innerHTML = `<div class="mc-empty big"><div class="mc-glyph">⌨</div><p>Escolha uma macro na lista para editar.</p><p class="muted">Ou crie uma nova com + Nova macro.</p></div>`; return; }
     if (!draft) { box.innerHTML = `<div class="mc-empty big"><div class="mc-glyph">⌨</div><p>Crie uma macro para começar.</p><p class="muted">Grave o que você faz no jogo ou monte passo a passo: teclas, cliques, movimentos, esperas, texto, cor de pixel e repetições.</p></div>`; return; }
     const m = draft;
     box.innerHTML = `
