@@ -647,9 +647,12 @@ const Macro = (() => {
       <div class="set toggle"><div><h4>Contagem do "Testar"</h4><p>Segundos de espera antes de executar pelo botão, para dar tempo de trocar para o jogo.</p></div><input type="number" id="sDelay" min="0" max="30" value="${s.testDelay ?? 3}" style="width:80px"></div>
       <div class="set" id="sEngine"></div>
       <div class="set mc-info"><h4>Segurança e como funciona</h4>
-        <p>Nada é baixado nem instalado. O motor é o arquivo <code>resources\\app\\lib\\engine.cs</code> na pasta do app (código aberto, dá para ler): o próprio PowerShell do Windows o compila na memória ao ligar. Ele usa só funções do Windows: ganchos globais de teclado/mouse (<code>SetWindowsHookEx</code>) e <code>SendInput</code>.</p>
+        ${/Linux/.test(navigator.userAgent) ? `<p>Nada é baixado nem instalado. O motor é o arquivo <code>lib/engine.py</code> (código aberto, dá para ler), rodado pelo Python do sistema. Ele usa só as bibliotecas do X11: <code>XRecord</code> para escutar o teclado e o mouse e <code>XTest</code> para enviar.</p>
+        <p>As teclas são enviadas pela posição no teclado, como no Windows. Toda entrada enviada pelo Piphin é reconhecida e nunca dispara outro atalho.</p>
+        <p><b>Sessão Wayland?</b> No Wayland as macros só alcançam os programas que rodam pelo XWayland (a maioria dos jogos pela Steam/Proton). Para funcionar em tudo, entre na sessão Xorg na tela de login.</p>`
+        : `<p>Nada é baixado nem instalado. O motor é o arquivo <code>resources\\app\\lib\\engine.cs</code> na pasta do app (código aberto, dá para ler): o próprio PowerShell do Windows o compila na memória ao ligar. Ele usa só funções do Windows: ganchos globais de teclado/mouse (<code>SetWindowsHookEx</code>) e <code>SendInput</code>.</p>
         <p>As teclas são enviadas por <b>scancode</b>, então funcionam também em jogos com DirectInput/Raw Input. Toda entrada enviada pelo Piphin é marcada e nunca dispara outro atalho.</p>
-        <p><b>Jogo aberto como administrador?</b> O Windows bloqueia entradas de programas comuns nele: abra o Piphin Macro como administrador também.</p>
+        <p><b>Jogo aberto como administrador?</b> O Windows bloqueia entradas de programas comuns nele: abra o Piphin Macro como administrador também.</p>`}
         <p>Use em jogos seus ou em modo offline: anti-cheats online (Vanguard, EAC, BattlEye...) detectam e banem macros.</p></div>
     </div>`;
     $("#sArmed").onchange = (e) => macro.settings({ armed: e.target.checked });

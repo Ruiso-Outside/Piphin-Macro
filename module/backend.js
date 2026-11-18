@@ -6,7 +6,8 @@ const { Macros } = require("./lib/macros");
 const aiTools = require("./ai-tools");
 
 exports.activate = (ctx) => {
-  const macros = new Macros({ userDir: path.join(process.env.APPDATA, "Piphin Macro") });
+  // Linux: ~/.config/Piphin Macro
+  const macros = new Macros({ userDir: path.join(process.env.APPDATA || process.env.XDG_CONFIG_HOME || path.join(require("os").homedir(), ".config"), "Piphin Macro") });
 
   // com atalhos ativos, fechar a janela do Hub só esconde (as macros continuam funcionando)
   const keepAlive = () => ctx.host.keepAlive(macros.settings.keepInTray && macros.hasActiveHotkeys(), "atalhos do Piphin Macro").catch(() => {});
