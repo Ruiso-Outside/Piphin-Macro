@@ -648,11 +648,11 @@ const Macro = (() => {
       <div class="set" id="sEngine"></div>
       <div class="set mc-info"><h4>Segurança e como funciona</h4>
         ${/Linux/.test(navigator.userAgent) ? `<p>Nada é baixado nem instalado. O motor é o arquivo <code>lib/engine.py</code> (código aberto, dá para ler), rodado pelo Python do sistema. Ele usa só as bibliotecas do X11: <code>XRecord</code> para escutar o teclado e o mouse e <code>XTest</code> para enviar.</p>
-        <p>As teclas são enviadas pela posição no teclado, como no Windows. Toda entrada enviada pelo Piphin é reconhecida e nunca dispara outro atalho.</p>
+        <p>As teclas são enviadas pela posição no teclado, como no Windows. Toda entrada enviada pelo Daemon é reconhecida e nunca dispara outro atalho.</p>
         <p><b>Sessão Wayland?</b> No Wayland as macros só alcançam os programas que rodam pelo XWayland (a maioria dos jogos pela Steam/Proton). Para funcionar em tudo, entre na sessão Xorg na tela de login.</p>`
         : `<p>Nada é baixado nem instalado. O motor é o arquivo <code>resources\\app\\lib\\engine.cs</code> na pasta do app (código aberto, dá para ler): o próprio PowerShell do Windows o compila na memória ao ligar. Ele usa só funções do Windows: ganchos globais de teclado/mouse (<code>SetWindowsHookEx</code>) e <code>SendInput</code>.</p>
-        <p>As teclas são enviadas por <b>scancode</b>, então funcionam também em jogos com DirectInput/Raw Input. Toda entrada enviada pelo Piphin é marcada e nunca dispara outro atalho.</p>
-        <p><b>Jogo aberto como administrador?</b> O Windows bloqueia entradas de programas comuns nele: abra o Piphin Macro como administrador também.</p>`}
+        <p>As teclas são enviadas por <b>scancode</b>, então funcionam também em jogos com DirectInput/Raw Input. Toda entrada enviada pelo Daemon é marcada e nunca dispara outro atalho.</p>
+        <p><b>Jogo aberto como administrador?</b> O Windows bloqueia entradas de programas comuns nele: abra o Arasaka Daemon como administrador também.</p>`}
         <p>Use em jogos seus ou em modo offline: anti-cheats online (Vanguard, EAC, BattlEye...) detectam e banem macros.</p></div>
     </div>`;
     $("#sArmed").onchange = (e) => macro.settings({ armed: e.target.checked });
@@ -860,7 +860,7 @@ const Lab = (() => {
     const max = Math.max(...counts);
     const pad = 22, bw = (W - 16) / bins;
     const grad = ctx.createLinearGradient(0, 0, 0, H);
-    grad.addColorStop(0, "#c084fc"); grad.addColorStop(1, "#7e22ce");
+    grad.addColorStop(0, "#ff5252"); grad.addColorStop(1, "#7e22ce");
     ctx.shadowColor = "rgba(168,85,247,.7)"; ctx.shadowBlur = 10;
     ctx.fillStyle = grad;
     counts.forEach((c, i) => { const h = (c / max) * (H - pad - 10); ctx.fillRect(8 + i * bw + 1, H - pad - h, bw - 2, h); });

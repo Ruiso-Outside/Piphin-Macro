@@ -10,7 +10,7 @@ exports.activate = (ctx) => {
   const macros = new Macros({ userDir: path.join(process.env.APPDATA || process.env.XDG_CONFIG_HOME || path.join(require("os").homedir(), ".config"), "Piphin Macro") });
 
   // com atalhos ativos, fechar a janela do Hub só esconde (as macros continuam funcionando)
-  const keepAlive = () => ctx.host.keepAlive(macros.settings.keepInTray && macros.hasActiveHotkeys(), "atalhos do Piphin Macro").catch(() => {});
+  const keepAlive = () => ctx.host.keepAlive(macros.settings.keepInTray && macros.hasActiveHotkeys(), "atalhos do Arasaka Daemon").catch(() => {});
 
   let batch = [];
   let flushing = null;
@@ -19,7 +19,7 @@ exports.activate = (ctx) => {
   macros.on("recorded", (r) => { ctx.emit("macro:recorded", r); ctx.host.focus().catch(() => {}); });
   macros.on("notice", (n) => {
     ctx.emit("macro:notice", n);
-    if (n.kind === "panic") ctx.host.notify("Piphin Macro", n.text).catch(() => {});
+    if (n.kind === "panic") ctx.host.notify("Arasaka Daemon", n.text).catch(() => {});
   });
   // eventos do analisador vão em lotes (o mouse pode gerar centenas por segundo)
   macros.on("input", (e) => {

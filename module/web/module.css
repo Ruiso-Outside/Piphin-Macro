@@ -1,11 +1,11 @@
 /* Piphin Macro dentro do Piphin Hub: base e componentes vêm do kit (piphin://ui/kit.css);
    aqui só o encaixe da página e o acabamento das peças próprias das macros (macro.css). */
-:root { --p-module: #e879f9; --neon: #c084fc; --neon2: #e879f9; --neon-glow: 0 0 6px rgba(192, 132, 252, .8), 0 0 20px rgba(192, 132, 252, .35); }
+:root { --p-module: #ff0000; --neon: #ff0000; --neon2: #ff0000; --neon-glow: 0 0 6px rgba(255, 0, 0, .8), 0 0 20px rgba(255, 0, 0, .35); }
 body.in-hub { display: flex; flex-direction: column; overflow: hidden; user-select: none; }
 body.in-hub main { flex: 1; overflow-y: auto; padding: 22px 26px 30px; user-select: text; min-height: 0; }
 .hub-ver { font-size: 11.5px; color: var(--p-text-3); padding-right: 6px; }
 .p-subnav .badge { margin-left: 4px; height: 18px; padding: 0 6px; font-size: 10.5px; }
-.badge.live { background: var(--p-err); color: #fff; box-shadow: 0 0 10px rgba(248, 113, 113, .6); }
+.badge.live { background: var(--p-err); color: #ffffff; box-shadow: 0 0 10px rgba(248, 113, 113, .6); }
 
 /* cartões e barra de estado no padrão do kit */
 .mc { margin-top: 0; }
@@ -21,7 +21,7 @@ body.in-hub main { flex: 1; overflow-y: auto; padding: 22px 26px 30px; user-sele
 
 /* tecla clicável (escolher atalho) */
 .kbd-btn { height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--p-surface-3) !important; border: 1px solid var(--p-line-2) !important;
-  border-bottom-width: 3px !important; border-radius: 10px !important; font: 600 13px var(--p-mono) !important; color: var(--p-text) !important; box-shadow: none !important; }
+  border-bottom-width: 3px !important; border-radius: 2px !important; font: 600 13px var(--p-mono) !important; color: var(--p-text) !important; box-shadow: none !important; }
 .kbd-btn:hover { border-color: var(--p-module) !important; }
 .kbd-btn.wait, .kbd-btn.cap { border-color: var(--p-module) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--p-module) 30%, transparent) !important; animation: p-blink 1.2s infinite; }
 .kbd-btn.sm { height: 30px; font-size: 12px !important; }
@@ -29,3 +29,7 @@ body.in-hub main { flex: 1; overflow-y: auto; padding: 22px 26px 30px; user-sele
 /* lista de passos */
 .mc-steps { border-radius: var(--p-r-m) !important; }
 .mc-name { font: 600 20px var(--p-font-display) !important; }
+
+/* tema Arasaka: cor e nome deste módulo na barra superior */
+:root { --p-module: #ff0000; --ara-tag: "DAEMON"; }
+.p-subnav::after { display: none; } /* o nome já aparece ao lado da versão */
