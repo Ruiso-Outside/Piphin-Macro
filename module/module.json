@@ -1,6 +1,6 @@
 {
   "id": "macro",
-  "name": "Arasaka Daemon",
+  "name": "Arasaka Sandevistan",
   "version": "0.0.0",
   "description": "Macros de teclado e mouse, gravador, autoclicker e analisador anti-macro.",
   "main": "backend.js",
@@ -13,7 +13,7 @@
       "name": "list_macros",
       "title": "Listar macros",
       "readOnly": true,
-      "description": "Lista as macros e o autoclicker do Arasaka Daemon: nome, atalho, modo, se está ligada e os passos.",
+      "description": "Lista as macros e o autoclicker do Arasaka Sandevistan: nome, atalho, modo, se está ligada e os passos.",
       "input": {
         "type": "object",
         "properties": {}
@@ -22,7 +22,7 @@
     {
       "name": "create_macro",
       "title": "Criar macro",
-      "description": "Cria (ou substitui, com replace) uma macro de teclado e mouse no Arasaka Daemon. Ela fica salva e roda pelo atalho. Modos: once = uma vez por atalho; repeat = repete repeat_times vezes; toggle = liga/desliga no atalho e repete até desligar; hold = repete enquanto o atalho estiver apertado. Coloque esperas (wait) entre as ações.",
+      "description": "Cria (ou substitui, com replace) uma macro de teclado e mouse no Arasaka Sandevistan. Ela fica salva e roda pelo atalho. Modos: once = uma vez por atalho; repeat = repete repeat_times vezes; toggle = liga/desliga no atalho e repete até desligar; hold = repete enquanto o atalho estiver apertado. Coloque esperas (wait) entre as ações.",
       "input": {
         "type": "object",
         "properties": {
@@ -167,7 +167,7 @@
     {
       "name": "configure_autoclicker",
       "title": "Ajustar autoclicker",
-      "description": "Ajusta o autoclicker do Arasaka Daemon (cliques por segundo, botão, atalho, modo).",
+      "description": "Ajusta o autoclicker do Arasaka Sandevistan (cliques por segundo, botão, atalho, modo).",
       "input": {
         "type": "object",
         "properties": {

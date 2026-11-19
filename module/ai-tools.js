@@ -126,7 +126,7 @@ function describe(m) {
 
 function register(ctx, macros) {
   const conflict = (hk, selfId) => hk && macros.list.find((m) => m.id !== selfId && m.enabled && m.hotkey && m.hotkey.vk === hk.vk && (m.hotkey.mods || 0) === (hk.mods || 0));
-  const tell = (text) => ctx.host.notify("Arasaka Daemon", text).catch(() => {});
+  const tell = (text) => ctx.host.notify("Arasaka Sandevistan", text).catch(() => {});
 
   ctx.handle("tool:list_macros", () => ({ macros: macros.list.map(describe), panic_key: hotkeyName(macros.settings.panic), hotkeys_on: !!macros.settings.armed }));
 
@@ -144,10 +144,10 @@ function register(ctx, macros) {
     const m = macros.saveMacro(def);
     tell(`${old ? "A IA alterou" : "A IA criou"} a macro "${m.name}"`);
     return { ok: true, [old ? "updated" : "created"]: describe(m),
-      warnings: [!hotkey && "Sem atalho: a macro só roda pelo botão Testar no Arasaka Daemon.",
+      warnings: [!hotkey && "Sem atalho: a macro só roda pelo botão Testar no Arasaka Sandevistan.",
         clash && `O atalho ${hotkeyName(hotkey)} também é usado pela macro "${clash.name}".`,
-        !macros.settings.armed && "Os atalhos estão desligados no Arasaka Daemon."].filter(Boolean),
-      tip: `Para parar qualquer macro na hora: ${hotkeyName(macros.settings.panic)}. Dá para ajustar tudo no módulo Arasaka Daemon.` };
+        !macros.settings.armed && "Os atalhos estão desligados no Arasaka Sandevistan."].filter(Boolean),
+      tip: `Para parar qualquer macro na hora: ${hotkeyName(macros.settings.panic)}. Dá para ajustar tudo no módulo Arasaka Sandevistan.` };
   });
 
   ctx.handle("tool:configure_autoclicker", (a) => {

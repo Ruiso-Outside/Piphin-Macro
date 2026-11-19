@@ -1,6 +1,8 @@
-# Piphin Macro
+# Arasaka Sandevistan
 
-Macros de teclado e mouse, autoclicker e analisador anti-macro da **Piphin Studio**, feitos para testar seus jogos e desenvolver o anti-macro deles. Instale e atualize pelo **Piphin Hub**.
+> Antes chamado **Piphin Macro**. Os arquivos, pastas e dados continuam com o nome antigo.
+
+Macros de teclado e mouse, autoclicker e analisador anti-macro da **Piphin Studio**, feitos para testar seus jogos e desenvolver o anti-macro deles. Instale e atualize pelo **Arasaka Central**.
 
 Nada de programa de terceiros: o motor é o arquivo `lib/engine.cs` (código aberto), que o próprio PowerShell do Windows compila na memória ao ligar. O `.exe` é o do Electron oficial, sem modificações, por isso o **Controle Inteligente de Aplicativos** do Windows não bloqueia. Os dados ficam em `%APPDATA%\Piphin Macro`.
 
@@ -13,7 +15,7 @@ Nada de programa de terceiros: o motor é o arquivo `lib/engine.cs` (código abe
 - **Analisador anti-macro**: mostra cada entrada como física, injetada ou do Piphin; mede intervalos, variação, tempo segurado e teleporte do mouse; desenha o histograma e dá um veredito com os motivos. Tem simulação de macro robótica e humanizada para comparar.
 - **Segurança**: tecla de pânico (<kbd>F12</kbd>) para tudo e solta qualquer tecla/botão preso; as entradas enviadas pelo Piphin são marcadas e nunca disparam outro atalho. Com atalhos ativos, fechar a janela deixa o app na bandeja.
 
-As teclas vão por **scancode** (funciona com DirectInput/Raw Input). Jogo aberto como administrador exige o Piphin Macro como administrador. Anti-cheats online detectam macros: use nos seus jogos ou offline.
+As teclas vão por **scancode** (funciona com DirectInput/Raw Input). Jogo aberto como administrador exige o Arasaka Sandevistan como administrador. Anti-cheats online detectam macros: use nos seus jogos ou offline.
 
 ## Desenvolvimento
 ```
@@ -22,11 +24,11 @@ npm start          # roda o app
 npm run check      # teste rápido do motor (só envia F24, que não faz nada)
 npm run icon       # redesenha icons/macro.png e macro.ico
 npm run dist       # gera dist\Piphin-Macro-X.Y.Z-win-x64.zip
-npm run module     # gera dist\piphin-module-macro-X.Y.Z.zip (módulo do Piphin Hub, ~120 KB)
+npm run module     # gera dist\piphin-module-macro-X.Y.Z.zip (módulo da Arasaka Central, ~120 KB)
 ```
 
-### Módulo do Piphin Hub
-O Piphin Macro também roda **dentro do Piphin Hub** (1.1.0 ou mais novo), como módulo. O motor (`lib/`) e as telas (`web/`) são os mesmos do app separado; `module/` tem só o que muda dentro do Hub:
+### Módulo da Arasaka Central
+O Arasaka Sandevistan também roda **dentro da Arasaka Central** (1.1.0 ou mais novo), como módulo. O motor (`lib/`) e as telas (`web/`) são os mesmos do app separado; `module/` tem só o que muda dentro do Hub:
 - `module/backend.js`: liga o motor ao Hub (o mesmo papel do `main.js` no app separado);
 - `module/web/`: página sem barra de título e com as abas no topo, mais `shim.js`, que mantém a API `window.macro`.
 
@@ -34,7 +36,7 @@ As macros ficam no mesmo lugar (`%APPDATA%\Piphin Macro`) nos dois jeitos. Evite
 
 ### Publicar uma versão
 1. Aumente `"version"` no `package.json` e rode `npm run dist` e `npm run module`.
-2. Crie o Release `vX.Y.Z` neste repositório com `Piphin-Macro-X.Y.Z-win-x64.zip` (app separado) e `piphin-module-macro-X.Y.Z.zip` (módulo). O Piphin Hub encontra e instala sozinho.
+2. Crie o Release `vX.Y.Z` neste repositório com `Piphin-Macro-X.Y.Z-win-x64.zip` (app separado) e `piphin-module-macro-X.Y.Z.zip` (módulo). A Arasaka Central encontra e instala sozinho.
 
 ## Estrutura
 | Arquivo | Conteúdo |

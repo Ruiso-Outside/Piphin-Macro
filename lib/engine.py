@@ -25,7 +25,7 @@ try:
     X = _lib("X11")
     XT = _lib("Xtst")
 except OSError:
-    print("err\tO Arasaka Daemon precisa das bibliotecas do X11 (libX11 e libXtst).", flush=True)
+    print("err\tO Arasaka Sandevistan precisa das bibliotecas do X11 (libX11 e libXtst).", flush=True)
     sys.exit(1)
 
 c_ulong, c_int, c_uint, c_void_p, c_char_p = ctypes.c_ulong, ctypes.c_int, ctypes.c_uint, ctypes.c_void_p, ctypes.c_char_p
@@ -137,7 +137,7 @@ X_BTN = {1: 1, 3: 2, 2: 4, 8: 5, 9: 6}
 # ------------------------------------------------------------------ estado
 DPY = X.XOpenDisplay(None)
 if not DPY:
-    print("err\tO Arasaka Daemon no Linux precisa de uma sessão gráfica X11 (na tela de login, escolha a sessão Xorg).", flush=True)
+    print("err\tO Arasaka Sandevistan no Linux precisa de uma sessão gráfica X11 (na tela de login, escolha a sessão Xorg).", flush=True)
     sys.exit(1)
 ROOT = X.XDefaultRootWindow(DPY)
 xlock = threading.RLock()

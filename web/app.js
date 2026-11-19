@@ -29,4 +29,4 @@ function toast(msg, kind = "") {
 
 document.addEventListener("click", (e) => { if (e.target.id === "modal") closeModal(false); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#modal").hidden) closeModal(false); });
-macro.version().then((r) => { if (r.ok) $("#appVer").textContent = `Arasaka Daemon v${r.data}`; });
+macro.version().then((r) => { if (r.ok) $("#appVer").textContent = `Arasaka Sandevistan v${r.data}`; });
